@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.disabled = true;
 
             setTimeout(() => {
-                alert('Request Received. A Cushman & Wakefield expert will contact you within 2 hours.');
+                alert('Your contact details are submitted and one of our experts will contact you soon.');
                 calcLeadForm.reset();
                 toggleSlide(false);
                 btn.innerText = originalText;
