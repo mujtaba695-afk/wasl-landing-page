@@ -1,0 +1,10 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# Gemini/Antigravity Artifacts
+.gemini/
+.agent/
+task.md
+implementation_plan.md
+walkthrough.md
