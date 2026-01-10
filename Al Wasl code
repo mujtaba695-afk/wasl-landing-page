@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      /* @see https://github.com/aFarkas/lazysizes#broken-image-symbol */.js img.lazyload:not([src]) { visibility: hidden; }/* @see https://github.com/aFarkas/lazysizes#automatically-setting-the-sizes-attribute */.js img.lazyloaded[data-sizes=auto] { display: block; width: 100%; }
+    </style>
+    <meta name="description" content="Explore Wasl Tower, a mixed-use development in Downtown Dubai offering luxury apartments and offices above the Mandarin Oriental. Rent now on Wasl" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Wasl" />
+    <meta name="facebook-domain-verification" content="vb585yg1ye1yzvko5httf7r6o9bxgt" />
+    <meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="alternate" hreflang="x-default" href="https://www.wasl.ae/en/wasltower?gad_campaignid=21411703560&amp;gad_source=1&amp;gbraid=0AAAAABSyM-WxPDJYpL7XqAcU_R1FoI3L3&amp;gclid=CjwKCAiAjojLBhAlEiwAcjhrDm3UtBOb586bJL2M706BkTvn1ypRZ5boYHHJU12JvVlK2z85gcJ3ixoC2qYQAvD_BwE&amp;utm_campaign=102025_wasl_google_search_brand_uae_commercial_wasl_tower_websiteconversions&amp;utm_content=wasl%20office%20for%20rent&amp;utm_medium=cpc&amp;utm_source=google" />
+    <link rel="alternate" hreflang="en" href="https://www.wasl.ae/en/wasltower?gad_campaignid=21411703560&amp;gad_source=1&amp;gbraid=0AAAAABSyM-WxPDJYpL7XqAcU_R1FoI3L3&amp;gclid=CjwKCAiAjojLBhAlEiwAcjhrDm3UtBOb586bJL2M706BkTvn1ypRZ5boYHHJU12JvVlK2z85gcJ3ixoC2qYQAvD_BwE&amp;utm_campaign=102025_wasl_google_search_brand_uae_commercial_wasl_tower_websiteconversions&amp;utm_content=wasl%20office%20for%20rent&amp;utm_medium=cpc&amp;utm_source=google" />
+    <link rel="alternate" hreflang="ar" href="https://www.wasl.ae/ar/wasltower?gad_campaignid=21411703560&amp;gad_source=1&amp;gbraid=0AAAAABSyM-WxPDJYpL7XqAcU_R1FoI3L3&amp;gclid=CjwKCAiAjojLBhAlEiwAcjhrDm3UtBOb586bJL2M706BkTvn1ypRZ5boYHHJU12JvVlK2z85gcJ3ixoC2qYQAvD_BwE&amp;utm_campaign=102025_wasl_google_search_brand_uae_commercial_wasl_tower_websiteconversions&amp;utm_content=wasl%20office%20for%20rent&amp;utm_medium=cpc&amp;utm_source=google" />
+    <link rel="icon" href="/themes/custom/wasltheme/favicon.ico" type="image/vnd.microsoft.icon" />
+    <link rel="alternate" hreflang="en" href="https://www.wasl.ae/en/wasltower" />
+    <link rel="alternate" hreflang="ar" href="https://www.wasl.ae/ar/wasltower" />
+    <link rel="canonical" href="https://www.wasl.ae/en/wasltower" />
+    <link rel="shortlink" href="https://www.wasl.ae/en/node/374" />
+    <title>
+      Wasl Tower | Apartments and Offices for Rent in Downtown Dubai | Wasl
+    </title>
+    <!-- Content from user request inserted here -->
+  </head>
+  <body class="path-node page-node-type-features-pages    bg- d-flex flex-column h-100">
+    <!-- Body content from user request inserted here -->
+  </body>
+</html>
