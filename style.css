@@ -806,8 +806,86 @@ nav {
     margin-bottom: 40px;
 }
 
+/* Mobile Toggle (Hidden by default, shown on mobile) */
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--cw-black);
+    transition: var(--transition-fast);
+}
+
 /* Sticky Hub Styling */
 .sticky-hub {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--cw-white);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+    padding: 15px 0;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%);
+    transition: var(--transition-smooth);
+}
+
+.sticky-hub.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.sticky-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.sticky-links {
+    display: flex;
+    gap: 15px;
+}
+
+.sticky-links a {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.whatsapp-link {
+    background: #25D366;
+    color: white;
+}
+
+.whatsapp-link:hover {
+    background: #20BA5A;
+}
+
+.sticky-links a:not(.whatsapp-link) {
+    background: var(--cw-red);
+    color: white;
+}
+
+.sticky-links a:not(.whatsapp-link):hover {
+    background: var(--cw-red-dark);
+}
+
+yling */ .sticky-hub {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -1095,8 +1173,14 @@ nav {
         display: none !important;
     }
 
+    /* Show mobile toggle (hamburger) */
+    .mobile-toggle {
+        display: flex !important;
+    }
+
     h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
+        line-height: 1.2;
     }
 
     h2 {
@@ -1109,6 +1193,15 @@ nav {
 
     .container {
         padding: 0 20px;
+    }
+
+    /* CRITICAL: Increase hero padding to prevent header overlap */
+    .hero-container {
+        padding-top: 180px !important;
+    }
+
+    .hero-title {
+        font-size: 2.5rem !important;
     }
 
     .hero-trust-indicators {
@@ -1143,23 +1236,66 @@ nav {
         grid-template-columns: 1fr;
     }
 
+    /* CRITICAL: Make sticky hub visible on mobile */
     .sticky-hub {
-        padding: 10px 0;
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: fixed !important;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: var(--cw-white);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+        z-index: 999;
+        transform: translateY(0) !important;
     }
 
-    .sticky-links {
-        display: none;
+    .sticky-hub.visible {
+        display: block !important;
     }
 
     .sticky-flex {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: center;
         align-items: center;
     }
 
+    .sticky-links {
+        display: flex !important;
+        gap: 10px;
+        flex: 1;
+    }
+
+    .sticky-links a {
+        flex: 1;
+        padding: 12px 15px;
+        text-align: center;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
     .sticky-hub .btn {
-        width: 100%;
+        flex: 1;
         margin: 0;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    /* Fix button text overflow */
+    .btn {
+        font-size: 0.85rem;
+        padding: 14px 20px;
+        white-space: nowrap;
+    }
+
+    .offering-card .btn {
+        width: 100%;
+        padding: 14px 10px;
+        font-size: 0.85rem;
     }
 
     .footer-links {
