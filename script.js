@@ -73,6 +73,33 @@ document.addEventListener('DOMContentLoaded', () => {
         lastScroll = currentScroll;
     });
 
+    // --- Mobile Menu Toggle ---
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('mobile-active');
+            mobileToggle.classList.toggle('active');
+
+            // Prevent body scroll when menu is open
+            if (navLinks.classList.contains('mobile-active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close menu when link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('mobile-active');
+                mobileToggle.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    }
+
     // --- Slide-over Form Logic ---
     const slideOver = document.getElementById('calc-slide-over');
     const overlay = document.getElementById('calc-overlay');
