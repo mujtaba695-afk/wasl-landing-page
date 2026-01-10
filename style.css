@@ -146,7 +146,7 @@ p {
 }
 
 .header-main .logo img {
-    height: 50px;
+    height: 65px;
     filter: none;
     /* Corporate original colors */
     transition: var(--transition-fast);
@@ -1196,6 +1196,10 @@ yling */ .sticky-hub {
 
     .header-main {
         padding: 12px 0;
+    }
+
+    .header-main .logo img {
+        height: 55px;
     }
 
     .nav-links {
