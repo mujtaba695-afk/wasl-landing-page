@@ -214,7 +214,7 @@ nav {
 }
 
 .hero-container {
-    padding-top: 140px;
+    padding-top: 160px;
 }
 
 .hero-content {
@@ -1286,7 +1286,7 @@ yling */ .sticky-hub {
 
     /* CRITICAL: Increase hero padding to prevent header overlap */
     .hero-container {
-        padding-top: 180px !important;
+        padding-top: 200px !important;
     }
 
     .hero-title {
@@ -1347,30 +1347,30 @@ yling */ .sticky-hub {
 
     .sticky-flex {
         flex-direction: row;
-        gap: 10px;
-        justify-content: center;
+        gap: 8px;
+        justify-content: space-between;
         align-items: center;
     }
 
     .sticky-links {
         display: flex !important;
-        gap: 10px;
-        flex: 1;
+        gap: 8px;
+        flex: 2;
     }
 
     .sticky-links a {
         flex: 1;
-        padding: 12px 15px;
+        padding: 10px 8px;
         text-align: center;
-        font-size: 0.9rem;
+        font-size: 0.75rem;
         white-space: nowrap;
     }
 
     .sticky-hub .btn {
         flex: 1;
         margin: 0;
-        padding: 12px 15px;
-        font-size: 0.9rem;
+        padding: 10px 8px;
+        font-size: 0.75rem;
         white-space: nowrap;
     }
 
