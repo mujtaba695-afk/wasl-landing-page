@@ -214,7 +214,7 @@ nav {
 }
 
 .hero-container {
-    padding-top: 160px;
+    padding-top: 200px;
 }
 
 .hero-content {
@@ -532,7 +532,7 @@ nav {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
