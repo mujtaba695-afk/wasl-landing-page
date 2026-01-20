@@ -168,11 +168,87 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Dynamic Form Handling (All Forms) ---
+    // --- Check for Previous Submissions on Page Load ---
+    const checkPreviousSubmission = () => {
+        const submittedData = localStorage.getItem('waslTowerSubmission');
+        if (submittedData) {
+            const data = JSON.parse(submittedData);
+            // Disable all submit buttons and show "already submitted" message
+            allForms.forEach(form => {
+                const submitBtn = form.querySelector('button[type="submit"]');
+                if (submitBtn) {
+                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Already Submitted';
+                    submitBtn.style.backgroundColor = '#95a5a6'; // Gray
+                    submitBtn.disabled = true;
+                    submitBtn.style.cursor = 'not-allowed';
+                }
+            });
+
+            // Show a friendly notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: #2ecc71;
+                color: white;
+                padding: 20px 30px;
+                border-radius: 8px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                z-index: 10000;
+                font-weight: 600;
+                animation: slideInRight 0.5s ease;
+            `;
+            notification.innerHTML = `
+                <i class="fas fa-info-circle"></i> You've already submitted an enquiry. We'll contact you shortly!
+            `;
+            document.body.appendChild(notification);
+
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.5s ease';
+                setTimeout(() => notification.remove(), 500);
+            }, 5000);
+        }
+    };
+
+    // Check on page load
+    checkPreviousSubmission();
+
+    // --- Dynamic Form Handling (All Forms) with Duplicate Prevention ---
     const allForms = document.querySelectorAll('form');
     allForms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            // Get email or phone from the form
+            const emailInput = form.querySelector('input[type="email"]');
+            const phoneInput = form.querySelector('input[type="tel"]');
+
+            const userEmail = emailInput ? emailInput.value : null;
+            const userPhone = phoneInput ? phoneInput.value : null;
+
+            // Check if user has already submitted
+            const submittedData = localStorage.getItem('waslTowerSubmission');
+            if (submittedData) {
+                const data = JSON.parse(submittedData);
+
+                // Check if email or phone matches
+                if ((userEmail && data.email === userEmail) || (userPhone && data.phone === userPhone)) {
+                    // Show "already submitted" message
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    submitBtn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Already Submitted';
+                    submitBtn.style.backgroundColor = '#e74c3c'; // Red
+
+                    setTimeout(() => {
+                        submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Already Submitted';
+                        submitBtn.style.backgroundColor = '#95a5a6'; // Gray
+                    }, 2000);
+
+                    return; // Stop submission
+                }
+            }
+
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
 
@@ -181,6 +257,14 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.disabled = true;
 
             setTimeout(() => {
+                // Store submission in localStorage
+                const submissionData = {
+                    email: userEmail,
+                    phone: userPhone,
+                    timestamp: new Date().toISOString()
+                };
+                localStorage.setItem('waslTowerSubmission', JSON.stringify(submissionData));
+
                 // Success State
                 submitBtn.innerHTML = '<i class="fas fa-check"></i> Inquiry Received';
                 submitBtn.style.backgroundColor = '#2ecc71'; // Success Green
@@ -197,13 +281,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 setTimeout(() => {
-                    // Close form but keep button disabled to prevent multiple submissions
+                    // Close form and keep button disabled permanently
                     if (slideOver && slideOver.classList.contains('active')) {
                         toggleForm(false);
                     }
-                    // Reset form but do NOT re-enable button or reset its state
+
+                    // Reset form but keep button disabled
                     form.reset();
-                    // Button remains disabled with success message
+
+                    // Change button to "Already Submitted" state
+                    submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Already Submitted';
+                    submitBtn.style.backgroundColor = '#95a5a6'; // Gray
+                    submitBtn.style.cursor = 'not-allowed';
+                    // Button remains disabled permanently
                 }, 3000);
             }, 1500);
         });
